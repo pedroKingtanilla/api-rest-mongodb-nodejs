@@ -1,21 +1,13 @@
-const express = require("express"),
-    app = express(),
-    bodyParser  = require("body-parser"),
-    methodOverride = require("method-override");
-    mongoose = require('mongoose');
+var service = require('./services/serviceFiniquito');
+var express = require('express');
+var app = express();
+let bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(methodOverride());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use('/', service);
 
-var router = express.Router();
-
-router.get('/', function(req, res) {
-   res.send("Hello World!");
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });
 
-app.use(router);
-
-app.listen(3000, function() {
-  console.log("Node server running on http://localhost:3000");
-});
