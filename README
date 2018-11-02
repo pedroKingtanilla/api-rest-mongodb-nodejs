@@ -1,0 +1,4 @@
+Clonar proyecto
+luego ejecutar npm i
+Este comando bajara todas las dependicias del proyecto, especificadas en el archivo package.json
+
